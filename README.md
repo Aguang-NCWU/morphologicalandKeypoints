@@ -43,15 +43,21 @@ cd morphologicalandKeypoints
 source ./devel/setup.bash
 roslaunch launch_and_map robotPathPlanningControlWithGui.launch
 ```
-(In the launch file, you can select different maps, resolutions, and algorithms for testing.)
+(In the launch file, you can select different maps, resolutions, and algorithms for testing)
+
 The target point is selected as shown in the figure below.
 <div align="center">
 <img width="554" height="443" alt="image" src="https://github.com/user-attachments/assets/49336a38-922f-4075-a942-83ef6337d567" />
 </div>
+You can compare the original and improved path planning by switching the path planning algorithm in the robotPathPlanningControlWithGui node of the launch_and_map package.
+Algorithms with the origin prefix represent the original version, while those with the improved prefix represent the optimized version.
+Below is the path comparison of the A* algorithm before(left) and after(right) improvement.
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/95f23ea9-1daf-4a25-8588-510c6593fd7b" width="45%" />
+  <img src="https://github.com/user-attachments/assets/195704c2-0c34-45fb-b0da-5a2e05a4ad83" width="45%" />
+</p>
 The robot car’s movement can be observed within the Gazebo simulation environment.
-<div align="center">
-  <img width="554" height="316" alt="image" src="https://github.com/user-attachments/assets/fbb96735-0535-4fe0-9c88-52c9e75ae121" />
-</div>
+<img width="1850" height="1055" alt="gazebo1" src="https://github.com/user-attachments/assets/1d886eac-147f-4757-b980-bb73f4bed827" />
 
 # 4 Other issues
 Please leave a message if you have any questions
