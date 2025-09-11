@@ -34,7 +34,9 @@ sudo apt install ros-noetic-navigation
 catkin_make
 ```
 If compilation is successful, you will see an output as shown in the figure. If it fails, it may be due to missing packages or an incomplete ROS installation. Follow the prompts to install any missing packages and recompile until successful.
-<img width="554" height="376" alt="image" src="https://github.com/user-attachments/assets/29db39cb-8fab-4f1a-8782-f5d84cfdc8e7" />
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/29db39cb-8fab-4f1a-8782-f5d84cfdc8e7" width="554" height="376" alt="image" />
+</div>
 
 
 
