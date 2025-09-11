@@ -40,12 +40,19 @@ If compilation is successful, you will see an output as shown in the figure. If 
 
 ```bash
 cd morphologicalandKeypoints
-cd morphologicalandKeypoints
+source ./devel/setup.bash
+roslaunch launch_and_map robotPathPlanningControlWithGui.launch
 ```
+(In the launch file, you can select different maps, resolutions, and algorithms for testing.)
+The target point is selected as shown in the figure below.
+<div align="center">
+<img width="554" height="443" alt="image" src="https://github.com/user-attachments/assets/49336a38-922f-4075-a942-83ef6337d567" />
+</div>
+The robot car’s movement can be observed within the Gazebo simulation environment.
+<div align="center">
+  <img width="554" height="316" alt="image" src="https://github.com/user-attachments/assets/fbb96735-0535-4fe0-9c88-52c9e75ae121" />
+</div>
 
-
-
-
-
+# 4 Other issues: Please leave a message if you have any questions
 
 
