@@ -3,7 +3,7 @@
   <arg name="demo_name" default="demo02" />
   
   <!-- Define the image size parameter -->
-  <arg name="image_size" default="50" /> <!--  values: 50, 100, 200 -->
+  <arg name="image_size" default="100" /> <!--  values: 50, 100, 200 -->
 
   <!-- Load the robot model file -->
   <param name="robot_description" command="$(find xacro)/xacro $(find model)/urdf/general.xacro" />
@@ -32,8 +32,8 @@
   <node pkg="launch_and_map" type="PathGui.py" name="PathGui" output="screen"
         args="--demo $(arg demo_name)"/>
   
-  <!-- Launch the A* (or improved RRT) path planning node -->
-  <node pkg="path" type="improved_RRT.py" name="Origin_Dij" output="screen">
+  <!-- Launch the path planning node -->
+  <node pkg="path" type="origin_A_star.py" name="Origin_A_star" output="screen">
     <!-- Pass the image size parameter to the path planning algorithm node -->
     <param name="image_size" value="$(arg image_size)" />
   </node>
