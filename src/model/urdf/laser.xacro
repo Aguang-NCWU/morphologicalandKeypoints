@@ -1,0 +1,96 @@
+<robot name="laser" xmlns:xacro="http://www.ros.org/wiki/xacro" > 
+
+    <!-- inertial -->
+    <xacro:macro name="sphere_inertial_matrix" params="m r">
+        <inertial>
+            <mass value="${m}" />
+            <inertia ixx="${2*m*r*r/5}" ixy="0" ixz="0"
+                iyy="${2*m*r*r/5}" iyz="0" 
+                izz="${2*m*r*r/5}" />
+        </inertial>
+    </xacro:macro>
+
+    <xacro:macro name="cylinder_inertial_matrix" params="m r h">
+        <inertial>
+            <mass value="${m}" />
+            <inertia ixx="${m*(3*r*r+h*h)/12}" ixy = "0" ixz = "0"
+                iyy="${m*(3*r*r+h*h)/12}" iyz = "0"
+                izz="${m*r*r/2}" /> 
+        </inertial>
+    </xacro:macro>
+
+    <xacro:macro name="Box_inertial_matrix" params="m l w h">
+       <inertial>
+               <mass value="${m}" />
+               <inertia ixx="${m*(h*h + l*l)/12}" ixy = "0" ixz = "0"
+                   iyy="${m*(w*w + l*l)/12}" iyz= "0"
+                   izz="${m*(w*w + h*h)/12}" />
+       </inertial>
+   </xacro:macro>
+
+    <!-- laser -->
+    <xacro:property name="laser_m" value="0.01" />
+    <xacro:property name="laser_radius" value="0.05"/>
+    <xacro:property name="laser_length" value="0.04"/>
+    <link name="laser_link">
+        <visual>
+            <geometry>
+                <cylinder radius="${laser_radius}" length="${laser_length}"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <material name="">
+                <color rgba="0.8 0 0.5 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="${laser_radius}" length="${laser_length}"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </collision>
+        <xacro:cylinder_inertial_matrix m="${laser_m}" r="${laser_radius}" h="${laser_length}" />
+    </link>
+    <joint name="laser_link2base_link" type="fixed">
+        <parent link="base_link"/>
+        <child link="laser_link"/>
+        <origin xyz="${basebox_length/4} 0 ${basebox_height/2 + laser_length/2}"/>
+    </joint>
+
+    <gazebo reference="laser_link">
+        <material>Gazebo/Green</material>
+    </gazebo>
+
+    <!-- gazebo -->
+    <gazebo reference="laser_link">
+        <sensor type="ray" name="rplidar">
+        <pose>0 0 0 0 0 0</pose>
+        <visualize>false</visualize>
+        <update_rate>10</update_rate>
+        <ray>
+            <scan>
+                <horizontal>
+                    <samples>360</samples>
+                    <resolution>1</resolution>
+                    <min_angle>-3</min_angle>
+                    <max_angle>3</max_angle>
+                </horizontal>
+            </scan>
+            <range>
+                <min>0.10</min>
+                <max>30.0</max>
+                <resolution>0.01</resolution>
+            </range>
+            <noise>
+                <type>gaussian</type>
+                <mean>0.0</mean>
+                <stddev>0.01</stddev>
+            </noise>
+        </ray>
+        <plugin name="gazebo_rplidar" filename="libgazebo_ros_laser.so">
+            <topicName>/scan</topicName>
+            <frameName>laser_link</frameName>
+        </plugin>
+        </sensor>
+    </gazebo>
+
+</robot>

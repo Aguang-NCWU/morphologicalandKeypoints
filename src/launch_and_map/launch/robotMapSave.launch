@@ -1,0 +1,8 @@
+<!-- PGM map generation launch file. 
+     After running, a .pgm file will be generated under the 'resources' folder of the current package. -->
+     <launch>
+        <!-- Define the name of the pgm file. 
+             For example, 'demo' will generate 'demo.pgm'. -->
+        <arg name="savePath" value="$(find integrated_launch)/resources/demo" /> 
+        <node name="map_save" pkg="map_server" type="map_saver" args="-f $(arg savePath)" />
+    </launch>

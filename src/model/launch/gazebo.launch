@@ -1,0 +1,12 @@
+<launch>
+
+    <param name="robot_description" command="$(find xacro)/xacro $(find robot_model)/urdf/general.xacro" />
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <!-- <arg name="world_name" value="$(find robot_model)/world/testWorld1.world" /> -->
+    </include>
+    <node pkg="gazebo_ros" type="spawn_model" name="model" args="-urdf -model car_robot -param robot_description -x 0 -y 0 -z 0.2"  />
+    <!-- <node pkg="rviz" type="rviz" name="rviz" args="-d $(find car)/config/car.rviz"/> -->
+    <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" output="screen"/>
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen"/>
+
+</launch>

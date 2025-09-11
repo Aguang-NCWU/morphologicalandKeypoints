@@ -1,0 +1,43 @@
+<launch>
+  <!-- Define a unified demo name parameter -->
+  <arg name="demo_name" default="demo02" />
+  
+  <!-- Define the image size parameter -->
+  <arg name="image_size" default="50" /> <!--  values: 50, 100, 200 -->
+
+  <!-- Load the robot model file -->
+  <param name="robot_description" command="$(find xacro)/xacro $(find model)/urdf/general.xacro" />
+  
+  <!-- Start the Gazebo simulation environment using the unified demo name -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+      <arg name="world_name" value="$(find model)/world/$(arg demo_name).world" />
+  </include>
+  
+  <!-- Spawn the robot model in Gazebo -->
+  <node pkg="gazebo_ros" type="spawn_model" name="model" 
+        args="-urdf -model car_robot -param robot_description -x -0.3 -y 0.3 -z 0.2"  />
+  <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" output="screen"/>
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen"/>
+
+  <!-- Load a parameter for the resource file path, 
+       which will be passed into the program for file reading -->
+  <param name="resourcesPath" value="$(find launch_and_map)/resources/"/>
+  <!-- Use the unified demo name as the image name -->
+  <param name="image_name" value="$(arg demo_name)"/>
+  <!-- Pass the image size parameter -->
+  <param name="image_size" value="$(arg image_size)"/>
+
+  <!-- Launch the path planning GUI interface for visualization, 
+       using the unified demo name -->
+  <node pkg="launch_and_map" type="PathGui.py" name="PathGui" output="screen"
+        args="--demo $(arg demo_name)"/>
+  
+  <!-- Launch the A* (or improved RRT) path planning node -->
+  <node pkg="path" type="improved_RRT.py" name="Origin_Dij" output="screen">
+    <!-- Pass the image size parameter to the path planning algorithm node -->
+    <param name="image_size" value="$(arg image_size)" />
+  </node>
+  
+  <!-- Launch the robot automatic control program -->
+  <node pkg="control" type="robot_auto_control" name="robot_auto_control" output="screen"/>
+</launch>

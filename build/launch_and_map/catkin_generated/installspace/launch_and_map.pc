@@ -1,0 +1,8 @@
+prefix=/home/aguang/morphologicalandKeypoints/install
+
+Name: launch_and_map
+Description: Description of launch_and_map
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

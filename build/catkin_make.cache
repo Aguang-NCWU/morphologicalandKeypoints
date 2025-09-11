@@ -1,0 +1,2 @@
+control:launch_and_map:model:path
+-DCATKIN_DEVEL_PREFIX=/home/aguang/morphologicalandKeypoints/devel -DCMAKE_INSTALL_PREFIX=/home/aguang/morphologicalandKeypoints/install -G Unix Makefiles
