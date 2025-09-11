@@ -1,6 +1,6 @@
 <launch>
   <!-- Define a unified demo name parameter -->
-  <arg name="demo_name" default="demo02" />
+  <arg name="demo_name" default="demo02" /><!--  model: 50, 100, 200 -->
   
   <!-- Define the image size parameter -->
   <arg name="image_size" default="100" /> <!--  values: 50, 100, 200 -->
@@ -33,6 +33,16 @@
         args="--demo $(arg demo_name)"/>
   
   <!-- Launch the path planning node -->
+  <!-- 
+    You can switch the 'type' attribute to select different path planning algorithms.
+    Available options include:
+      - improved_Ant_Colony.py            / origin_Ant_Colony.py
+      - improved_A_star.py                / origin_A_star.py
+      - improved_Bidirectional_A_star.py  / origin_Bidirectional_A_star.py
+      - improved_Dij.py                   / origin_Dij.py
+      - improved_Jps.py                   / origin_Jps.py
+      - improved_RRT.py                   / origin_RRT.py
+  -->
   <node pkg="path" type="origin_A_star.py" name="Origin_A_star" output="screen">
     <!-- Pass the image size parameter to the path planning algorithm node -->
     <param name="image_size" value="$(arg image_size)" />
