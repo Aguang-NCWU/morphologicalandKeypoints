@@ -53,6 +53,7 @@ The robot car’s movement can be observed within the Gazebo simulation environm
   <img width="554" height="316" alt="image" src="https://github.com/user-attachments/assets/fbb96735-0535-4fe0-9c88-52c9e75ae121" />
 </div>
 
-# 4 Other issues: Please leave a message if you have any questions
+# 4 Other issues
+Please leave a message if you have any questions
 
 
