@@ -64,8 +64,13 @@ The following presents the results of multiple experiments I conducted, along wi
 
 | Core Algorithm | without optimization module |with preprocessing module | with preprocessing and postprocessing modules|
 |-------|-------|-------|-------|
-| A* Algorithm | 内容2 | 内容3 |
-| 内容4 | 内容5 | 内容6 |
+| A* Algorithm | <img width="191" height="182" alt="image" src="https://github.com/user-attachments/assets/28ba38b9-a05e-4d9a-a089-588826534ac3" /> |<img width="191" height="182" alt="image" src="https://github.com/user-attachments/assets/86f58615-322c-4c9e-a510-3c0587ea571a" />|<img width="190" height="182" alt="image" src="https://github.com/user-attachments/assets/abec9270-9db2-4f1c-b155-09ae0d9665aa" />|
+|Dijkstra Algorithm | <img width="188" height="182" alt="image" src="https://github.com/user-attachments/assets/274963e6-9945-4703-94f4-6b73eb729a93" /> | <img width="191" height="182" alt="image" src="https://github.com/user-attachments/assets/c27af1d5-3aa6-42b4-9bef-14aea7c2ffbb" /> |<img width="190" height="182" alt="image" src="https://github.com/user-attachments/assets/051bdbf9-7c5f-4864-a573-62419de5e3d1" />|
+|Ant Colony Algorithm |<img width="190" height="182" alt="image" src="https://github.com/user-attachments/assets/18505f43-8b88-4a58-bf3e-14b332f6b12b" /> | <img width="190" height="182" alt="image" src="https://github.com/user-attachments/assets/3516104c-0717-4dc6-b530-76ab64be5c2d" />|<img width="194" height="182" alt="image" src="https://github.com/user-attachments/assets/5c2aa587-5e48-483c-b8fa-793ae688bf22" />|
+|Bidirectional A* Algorithm | <img width="189" height="182" alt="image" src="https://github.com/user-attachments/assets/ee2bead2-361f-41d0-b62d-b96778420337" />| <img width="190" height="182" alt="image" src="https://github.com/user-attachments/assets/985751c2-670f-455b-962c-f9c679969f7d" />|<img width="190" height="182" alt="image" src="https://github.com/user-attachments/assets/1c6ad070-2991-4a5c-bbf5-204959c3e24a" />|
+|JPS Algorithm | <img width="190" height="182" alt="image" src="https://github.com/user-attachments/assets/3bfc7dc8-c317-4ca0-9f0c-5befc6b03e59" />| <img width="189" height="182" alt="image" src="https://github.com/user-attachments/assets/57cdedf0-099e-4bb5-81b5-923b7034256e" /> |<img width="191" height="182" alt="image" src="https://github.com/user-attachments/assets/4666139b-2101-4909-9213-3a9eaa80ca49" />|
+|RRT Algorithm |<img width="189" height="182" alt="image" src="https://github.com/user-attachments/assets/29e166a1-a9a8-4109-ba18-f899cba7fd70" />|<img width="192" height="182" alt="image" src="https://github.com/user-attachments/assets/500ccfed-80a1-4180-8202-b1127107dd6e" />|<img width="182" height="182" alt="image" src="https://github.com/user-attachments/assets/d79c79a2-75be-48a0-b5a8-960fded8d67a" />
+|
 
 
 
