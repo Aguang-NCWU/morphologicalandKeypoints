@@ -62,9 +62,9 @@ The robot car’s movement can be observed within the Gazebo simulation environm
 # 4 Other issues
 The following presents the results of multiple experiments I conducted, along with comparative plots of the robot’s performance before and after optimization, drawn based on its execution characteristics.
 
-| 列名1 | 列名2 | 列名3 |
-|-------|-------|-------|
-| 内容1 | 内容2 | 内容3 |
+| Core Algorithm | without optimization module |with preprocessing module | with preprocessing and postprocessing modules|
+|-------|-------|-------|-------|
+| A* Algorithm | 内容2 | 内容3 |
 | 内容4 | 内容5 | 内容6 |
 
 
